@@ -10,8 +10,6 @@
 
     <!--Description-->
     
-        <meta name="description" content="CVE _2019_07_08">
-    
 
     <!--Author-->
     
@@ -20,7 +18,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="漏洞复现">
+        <meta property="og:title" content="你好">
     
 
     <!--Open Graph Description-->
@@ -31,7 +29,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="article">
+        <meta property="og:type" content="website">
     
 
     <!--Page Cover-->
@@ -42,7 +40,7 @@
 
     <!-- Title -->
     
-    <title>漏洞复现 - 你好</title>
+    <title>Archives: 2019/12 - 你好</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -129,7 +127,9 @@
 <div class="container">
 
     <!-- Main Content -->
-    <div class="row">
+    
+
+<div class="row">
     <div class="col-sm-12">
 
         <!--Title and Logo-->
@@ -137,124 +137,34 @@
     <div class="logo">
         <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
         
+            <h1 id="main-title" class="title">2019/12</h1>
+        
     </div>
 </header>
 
-        <section class="main">
+        <section class="main archive-container">
             
-<div class="post">
-
-    <div class="post-header">
-        <h1 class="title">
-            <a href="/2019/09/07/CVE-2019-0708/">
-                漏洞复现
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2019-09-07</span>
-            
-            
-            
-        </div>
-    </div>
-
-    <div class="content">
-
-        <!-- Gallery -->
-        
-            
-<div class="gallery-container">
-    
-        
-            <div class="picture-container">
-                <a href="#" data-featherlight="/-![]( http://ww1.sinaimg.cn/large/007bHQE8gy1g6rgpepwi8j31h50su4qp.jpg)">
-                    <img src="/-![]( http://ww1.sinaimg.cn/large/007bHQE8gy1g6rgpepwi8j31h50su4qp.jpg)" class="img-thumbnail" />
-                </a>
-            </div>
-        
-    
+                <div class="archive-post">
+    <a href="/2019/09/07/CVE-2019-0708/">
+        <span class="archive-date">
+            Sep 2019
+        </span>
+        漏洞复现
+    </a>
 </div>
-        
-
-        <!-- Post Content -->
-        <h3 id="CVE-2019-07-08"><a href="#CVE-2019-07-08" class="headerlink" title="CVE _2019_07_08"></a>CVE _2019_07_08</h3><a id="more"></a>
-
-<h1 id="CVE-2019-07-08漏洞复现"><a href="#CVE-2019-07-08漏洞复现" class="headerlink" title="CVE _2019_07_08漏洞复现"></a>CVE _2019_07_08漏洞复现</h1><p>2019.9.07 今天一天 微信群，空间，知识星球刷爆了CVE2019-0708 ，第一反应是CVE2019-0708这个漏洞早在今年5月份就被爆出当时还要一部分蓝屏攻击的poc，现在又火起来，难道又有新的exp了吗？</p>
-<p>抱着好奇的心态去凑了一波热度，发现</p>
-<p>大佬们早已开始动手开始在漏洞复现了，一枚萌新抱着学习的心态想抱紧大佬们的大腿。</p>
-<p>晚上有空余的时间准备自己也动手复现一次啦，毕竟动手才能体会学习的乐趣嘛哈哈，</p>
-<p>开始</p>
-<p>首先需要准备环境，毕竟复现漏洞不能之间拿提供服务器的机器来。</p>
-<h2 id="需要准备环境"><a href="#需要准备环境" class="headerlink" title="需要准备环境"></a>需要准备环境</h2><p>windons 7  64  （开启3389远程桌面）</p>
-<p>kali  （msf更新到最新版本）</p>
-<p>Windows7 SP1下载链接:ed2k://|file|cn_windows_7_ultimate_with_sp1_x64_dvd_u_677408.iso|3420557312|B58548681854236C7939003B583A8078|/</p>
-<p>下载CVE-2019-0708RDP MSF攻击套件.zip </p>
-<p>链接：<code>https://pan.baidu.com/s/1ksE3pn58XtK1I2Zq9PwnGQ</code><br>提取码：x7k7 </p>
-<p>也可以直接使用命令在kali下下载</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/rapid7/metasploit-framework/edb7e20221e2088497d1f61132db3a56f81b8ce9/lib/msf/core/exploit/rdp.rb</span><br><span class="line">wget https://github.com/rapid7/metasploit-framework/raw/edb7e20221e2088497d1f61132db3a56f81b8ce9/modules/auxiliary/scanner/rdp/rdp_scanner.rb</span><br><span class="line">wget https://github.com/rapid7/metasploit-framework/raw/edb7e20221e2088497d1f61132db3a56f81b8ce9/modules/exploits/windows/rdp/cve_2019_0708_bluekeep_rce.rb</span><br><span class="line">wget https://github.com/rapid7/metasploit-framework/raw/edb7e20221e2088497d1f61132db3a56f81b8ce9/modules/auxiliary/scanner/rdp/cve_2019_0708_bluekeep.rb</span><br></pre></td></tr></table></figure>
-
-<p>下载好的之久文件如下：</p>
-<p><img src="http://ww1.sinaimg.cn/large/007bHQE8gy1g6rfqav290j30nu0gqmy0.jpg" alt></p>
-<p>这时候需要把文件移动到指定的系统中</p>
-<p><code>rdp.rb 移动到  /usr/share/metasploit-framework/lib/msf/core/exploit 目录</code></p>
-<p><code>rdp_scanner.rb和cve_2019_0708_bluekeep.rb放到/usr/share/metasploit-framework/modules/auxiliary/scanner/rdp 目录</code></p>
-<p><code>cve_2019_0708_bluekeep_rce.rb 放进/usr/share/metasploit-framework/modules/exploits/windows/rdp 目录，这里需要注意如果没有rdp这个目录就去创建个。</code></p>
-<h2 id="exp-利用"><a href="#exp-利用" class="headerlink" title="exp 利用"></a>exp 利用</h2><p>开启msfconsole </p>
-<p><img src="http://ww1.sinaimg.cn/large/007bHQE8gy1g6rfylwxtcj30o90hkwoa.jpg" alt></p>
-<p>由于msf新添加了模块所以需要更新msf模块 输入<code>reload_all</code> 等待执行完成。</p>
-<p><img src="http://ww1.sinaimg.cn/large/007bHQE8gy1g6rg1wyg9kj30o605ngn5.jpg" alt></p>
-<p>更新msf模块完成后，搜索漏洞编码判断模块是否加载成功，<code>search cve-2019-0708</code></p>
-<p><img src="http://ww1.sinaimg.cn/large/007bHQE8gy1g6rg9ui938j30nl0am0wg.jpg" alt></p>
-<p>如果没有添加成功需要重新导入四件套到指定的位置，并执行<code>reload_all</code></p>
-<p>找到exp后开始调用攻击利用的exp：<code>use exploit/windows/rdp/cve_2019_0708_bluekeep_rce</code></p>
-<p><img src="http://ww1.sinaimg.cn/large/007bHQE8gy1g6rgcmnnx6j30o50a1ae3.jpg" alt></p>
-<p>输入<code>options</code> 查询配置信息。</p>
-<p><img src="http://ww1.sinaimg.cn/large/007bHQE8gy1g6rge0ajjnj30nu0f37at.jpg" alt></p>
-<h2 id="设置参数"><a href="#设置参数" class="headerlink" title="设置参数"></a>设置参数</h2><p>主要设置的参数有RHOSTS / RPORT / target</p>
-<ol>
-<li>RHOSTS 靶机ip</li>
-<li>RPORT rdp端口</li>
-<li>target ID数字(可选为0-4)设置受害机机器架构</li>
-</ol>
-<p><img src="http://ww1.sinaimg.cn/large/007bHQE8gy1g6rgjr1esdj30on072jv4.jpg" alt></p>
-<p>开始攻击 目标 输入 <code>run</code></p>
-<p><img src="C:%5CUsers%5Cdell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1567876725784.png" alt="1567876725784"></p>
-<p><img src="http://ww1.sinaimg.cn/large/007bHQE8gy1g6rgmjsc1lj31hc0u07wh.jpg" alt></p>
-<p><img src="http://ww1.sinaimg.cn/large/007bHQE8gy1g6rgpepwi8j31h50su4qp.jpg" alt></p>
-<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p>1.成功拿到win的连接，但是，群里很多人反应靶机出现蓝屏的现象，建议切勿使用生产环境测试。</p>
-<p>2.在复现的过程中遇到的 文件拷贝到了指定的路径，但在msf搜索不到的情况，卡在这里很久，解决办法把msf更新到最新版本，并且重启msf执行<code>reload_all</code></p>
-<p>3.winons  server 2008 ps 2 由于没有搭靶机所以还没有试，不过听弄过的大表哥们说阔以的，后面搭了靶机再试试。</p>
-<p>参考了网络大佬们的复现过程，自我总结才有这篇文章，下面附上连接：</p>
-<p>算命縖子:<code>http://www.nmd5.com/?p=409&amp;from=groupmessage&amp;isappinstalled=0</code></p>
-<p>华盟：<code>https://bbs.77169.net/forum.php?mod=viewthread&amp;tid=374039&amp;page=1&amp;extra=#pid3699692</code></p>
-<p>黑鸟：<code>https://mp.weixin.qq.com/s/uxO2drEqf0VwfpgPdZewHw</code></p>
-<p><code>https://qiita.com/shimizukawasaki/items/024b296a4c9ae7c33961?from=groupmessage&amp;isappinstalled=0</code></p>
-<h2 id="修复建议"><a href="#修复建议" class="headerlink" title="修复建议"></a>修复建议</h2><p>奇安信CVE-2019-0708漏洞热补丁工具使用手册<br><code>https://mp.weixin.qq.com/s/5g3MjS-JMPStnb89inVKXQ</code></p>
-<p>微软官方：<br><code>https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-0708</code></p>
-<p>时间不早了，晚安！</p>
-<p><img src="http://ww1.sinaimg.cn/large/007bHQE8gy1g6rh3jcxd0j307507edgm.jpg" alt></p>
-
-    </div>
-
-    
-
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/系统安全/">#系统安全</a> <a href="/tags/CVE-2019-0708/">#CVE-2019-0708</a>
-        </div>
-    
-
-    <!-- Comments -->
-    
-
+            
+                <div class="archive-post">
+    <a href="/2019/12/04/hello-world/">
+        <span class="archive-date">
+            Dec 2019
+        </span>
+        Untitled
+    </a>
 </div>
+            
         </section>
-
     </div>
 </div>
-
 
 </div>
 
